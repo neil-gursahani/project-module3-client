@@ -1,13 +1,23 @@
 import React from 'react';
-import axios from 'axios';
+import Axios from 'axios';
+import qs from 'qs';
     
-export function api() {
-    axios
-        .get('https://cloud.iexapis.com/stable/stock/aapl/chart/date/20200409?sort=desc&token=pk_3d70698b98244ac68901d1cda3a83c2d')
-        .then((apiResponse) => {
-            console.log(apiResponse.data);
-        })
-        .catch((error) => {
-            console.log("Error in retrieving API data!");
-        });
-}
+const axios = Axios.create({
+    baseURL: 'http://localhost:3000/',
+    withCredentials: true,
+    headers: {'content-type': 'application/x-www-form-urlencoded'}
+});
+
+export const createPortfolio = (stock) => {
+    return axios({
+        method: "POST",
+        url: "stocks",
+        data: qs.stringify(stock)
+    })
+    .then((response)=> {
+      
+    })
+    .catch((error) => {
+        console.log(error);
+    });  
+};

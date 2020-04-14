@@ -8,11 +8,16 @@ import Homepage from './pages/Homepage';
 import SignupPage from './pages/SignupPage';
 import LoginPage from './pages/LoginPage';
 import AllStocksPage from './pages/AllStocksPage';
+import StockName from './pages/StockName';
+import SingleStockDetailPage from './pages/StockCompanyDetail';
+import StockNewsPage from './pages/StockNews';
+import StockGraphPage from './pages/StockGraphPage';
 // import DefaultLayout from './layouts/DefaultLayout';
 
 //Import styling
 import './App.css';
 import 'bulma/css/bulma.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 class App extends Component {
   constructor(props) {
@@ -37,6 +42,13 @@ class App extends Component {
         <Route exact path='/signup' component={SignupPage}/>
         <Route exact path='/login' component={LoginPage}/>
         <Route exact path='/stocks' component={AllStocksPage}/>
+        <Route exact path='/name' component={StockName}/>
+        <Route exact path='/single' component={SingleStockDetailPage}/>
+        <Route exact path='/news' component={StockNewsPage}/>
+        <Route exact path='/history' component={StockGraphPage}/>
+        
+        
+        
         
       </div>
     )

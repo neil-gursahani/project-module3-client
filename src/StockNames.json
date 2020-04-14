@@ -1,0 +1,41 @@
+[
+    {
+        "symbol": "A",
+        "exchange": "NYS",
+        "name": "Agilent Technologies Inc.",
+        "date": "2020-04-10",
+        "type": "cs",
+        "iexId": "IEX_46574843354B2D52",
+        "region": "US",
+        "currency": "USD",
+        "isEnabled": true,
+        "figi": "BBG000C2V3D6",
+        "cik": "1090872"
+    },
+    {
+        "symbol": "AA",
+        "exchange": "NYS",
+        "name": "Alcoa Corp.",
+        "date": "2020-04-10",
+        "type": "cs",
+        "iexId": "IEX_4238333734532D52",
+        "region": "US",
+        "currency": "USD",
+        "isEnabled": true,
+        "figi": "BBG00B3T3HD3",
+        "cik": "1675149"
+    },
+    {
+        "symbol": "AAAU",
+        "exchange": "PSE",
+        "name": "Perth Mint Physical Gold ETF",
+        "date": "2020-04-10",
+        "type": "et",
+        "iexId": "IEX_474B433136332D52",
+        "region": "US",
+        "currency": "USD",
+        "isEnabled": true,
+        "figi": "BBG00LPXX872",
+        "cik": null
+    }
+]

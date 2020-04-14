@@ -8,19 +8,18 @@ class LoginPage extends Component {
         this.onChange = this.onChange.bind(this);
 
         this.state = {
-            user: {
+            // user: {
                 email: '',
-                password: ''
-            }, 
+                password: '',
+            // }, 
 
-            error: null
-                
-        }
+            error: null 
+        };
     }
 
     formSubmit(event) {
-        // event.preventDefault();
-        login(this.state.user)
+        event.preventDefault();
+        login(this.state)
         .then((response) => {
             this.setState({
                 error: null
@@ -28,39 +27,39 @@ class LoginPage extends Component {
 
         () => {
             this.props.history.push("/stocks");
-        });
-    })
+            });
+        })
         .catch((error) => {
-            console.log(error.response.data)
+            console.log(error.response.data);
         });
     }
 
     onChange(event) {
         this.setState({
             [event.target.name]: event.target.value
-    })
+        })
     }
-
 
     render() {
         return (
             <div>
-                <form onSubmit={this.formSubmit}>
-                <div class="field">
-                    <div class="control">
-                        <input type="email" name="email" value={this.state.email} onChange={(event) => this.onChange(event)} placeholder="Email"/>
+                <form onSubmit={(event) => this.formSubmit(event)}> 
+                <div className="field">
+                    <div className="control">
+                        <input type="email" name="email" required value={this.state.email} onChange={(event) => this.onChange(event)} placeholder="Email"/>
                     </div>
                 </div>
-                <div class="field">
-                    <div class="control">
-                        <input type="password" name="password" value={this.state.password} onChange={(event) => this.onChange(event)} placeholder="Password"/>
+                <div className="field">
+                    <div className="control">
+                        <input type="password" name="password" required value={this.state.password} onChange={(event) => this.onChange(event)} placeholder="Password"/>
                     </div>
                 </div>
-                <div class="field is-grouped">
-                    <div class="control">
+                <div className="field is-grouped">
+                    <div className="control">
                         <input type="submit" value="Submit"/>
                     </div>
                 </div>
+                <p>Don't have an account? <a href="/signup">Sign up!</a></p>
                 </form>
                 
             </div>

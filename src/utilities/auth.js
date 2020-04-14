@@ -8,19 +8,18 @@ const axios = Axios.create({
 });
 
 export const signup = (user)=>{
-    debugger
     return axios({
         method: "POST",
         url: "signup",
         data: qs.stringify(user)
-        // headers: {"content-type": "application/x-www-form-urlencoded"}
     })
     .then((response)=> {
-        debugger
         setUser(response.data);
     })
-    
-}
+    .catch((error) => {
+        console.log(error);
+    });  
+};
 
 export const login = (user)=>{
     return axios({
@@ -29,15 +28,22 @@ export const login = (user)=>{
         data: qs.stringify(user)
     })
     .then((response)=> {
-        setUser(response.data);
+        getUser(response.data);
+        return response;
     })
-}
+    .catch((error) => {
+        console.log(error);
+    });
+};
 
 export const setUser = (user)=> {
-    debugger
     window.localStorage.setItem("user", JSON.stringify(user));
 }
 
 export const getUser = (user)=> {
     return JSON.parse(window.localStorage.getItem("user"));
 }
+
+export const logout = (user) => {
+    window.localStorage.removeItem('user');
+ }
