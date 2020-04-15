@@ -43,8 +43,8 @@ class App extends Component {
         <Route exact path='/login' component={LoginPage}/>
         <Route exact path='/portfolio' component={PortfolioPage}/>
         <Route exact path='/stocks' component={StockName}/>
-        <Route exact path='/single' component={SingleStockDetailPage}/>
-        <Route exact path='/news' component={StockNewsPage}/>
+        <Route exact path='/stocks/detail/:stockId' component={SingleStockDetailPage}/>
+        <Route exact path='/stocks/news/:stockId' component={StockNewsPage}/>
         <Route exact path='/stocks/detail/:stockId' component={StockGraphPage}/>
         
         

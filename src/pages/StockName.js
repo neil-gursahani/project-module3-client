@@ -40,7 +40,7 @@ class StockName extends Component {
                 <input className="stock-search" type="text" onChange={this.filterStocks} placeholder='Search Stock'/>
                 {this.state.stockNames.map((stock, index) => 
                 <div className="single-stock-column" key={index}>
-                    <Link to={`/stock/detail/${stock.symbol}`}>
+                    <Link to={`/stocks/detail/${stock.symbol}`}>
                         <p className="single-stock-info">{stock.name}</p>
                         <p className="single-stock-info">{stock.symbol}</p>
                     </Link>
