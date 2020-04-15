@@ -13,6 +13,7 @@ class SingleStockDetailPage extends Component {
 
     componentDidMount() {
         axios.get(`https://cloud.iexapis.com/stable/stock/${this.props.match.params.stockId}/company?token=pk_3d70698b98244ac68901d1cda3a83c2d`)
+        axios.get(`https://cloud.iexapis.com/stable/stock/aapl/company?token=pk_3d70698b98244ac68901d1cda3a83c2d`)
         .then(response => {
             this.setState({oneStock: response.data});
             // console.log(response);

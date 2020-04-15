@@ -43,6 +43,7 @@ class StockGraphPage extends Component {
     fetchFinancialGraphData(){
         axios
         .get(`https://cloud.iexapis.com/stable/stock/${this.props.match.params.stockId}/chart/${this.state.timeInterval}?sort=asc&token=pk_3d70698b98244ac68901d1cda3a83c2d`)
+        .get(`https://cloud.iexapis.com/stable/stock/aapl/chart/${this.state.timeInterval}?sort=asc&token=pk_3d70698b98244ac68901d1cda3a83c2d`)
         .then((apiResponse) => {
 
             var data = apiResponse.data.map((day)=> day.close);
