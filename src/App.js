@@ -7,7 +7,7 @@ import { Route } from 'react-router-dom';
 import Homepage from './pages/Homepage';
 import SignupPage from './pages/SignupPage';
 import LoginPage from './pages/LoginPage';
-import AllStocksPage from './pages/AllStocksPage';
+import PortfolioPage from './pages/PortfolioPage';
 import StockName from './pages/StockName';
 import SingleStockDetailPage from './pages/StockCompanyDetail';
 import StockNewsPage from './pages/StockNews';
@@ -41,11 +41,11 @@ class App extends Component {
         <Route exact path='/' component={Homepage}/>
         <Route exact path='/signup' component={SignupPage}/>
         <Route exact path='/login' component={LoginPage}/>
-        <Route exact path='/stocks' component={AllStocksPage}/>
-        <Route exact path='/name' component={StockName}/>
+        <Route exact path='/portfolio' component={PortfolioPage}/>
+        <Route exact path='/stocks' component={StockName}/>
         <Route exact path='/single' component={SingleStockDetailPage}/>
         <Route exact path='/news' component={StockNewsPage}/>
-        <Route exact path='/history' component={StockGraphPage}/>
+        <Route exact path='/stocks/detail/:stockId' component={StockGraphPage}/>
         
         
         

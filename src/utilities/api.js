@@ -9,15 +9,20 @@ const axios = Axios.create({
 });
 
 export const createPortfolio = (stock) => {
+    debugger
     return axios({
         method: "POST",
-        url: "stocks",
+        url: "portfolio",
         data: qs.stringify(stock)
     })
     .then((response)=> {
-      
+        setUser(response.data);
     })
     .catch((error) => {
         console.log(error);
     });  
+};
+
+export const setUser = (stock)=> {
+    window.localStorage.setItem("user", JSON.stringify(stock));
 };

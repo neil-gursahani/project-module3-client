@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import {signup} from '../utilities/auth';
-import 'bulma/css/bulma.css'
+import 'bulma/css/bulma.css';
 
 class SignupPage extends Component {
     constructor(props) {
         super(props);
+        
         this.formSubmit = this.formSubmit.bind(this);
         this.onChange = this.onChange.bind(this);
 

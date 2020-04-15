@@ -132,6 +132,34 @@ footer {
   
 }
 
+.stock-info-and-graph {
+  display: flex;
+}
+
+.stock-graph {
+  width: 70%;
+}
+
+.stock-buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: 2%;
+}
+
+.all-stocks-table {
+  overflow-y: scroll;
+  height: 75vh;
+  top: 30%;
+}
+
+.single-stock-column {
+  display: flex;
+}
+
+.single-stock-info {
+  padding: 0px 20px;
+}
+
 
 
 
