@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {createPortfolio} from '../utilities/api';
 import 'bulma/css/bulma.css';
+import DefaultLayout from '../layouts/DefaultLayout';
 // import {Button} from 'react-bootstrap';
 // import {Modal} from 'react-bootstrap';
 // import Example from '../components/Example';
@@ -52,6 +53,9 @@ class PortfolioPage extends Component {
 
     render() {
         return (
+            <DefaultLayout>
+
+            
             <div className="portfolio-page">
                 <div>
                     <h1>Portfolio</h1>
@@ -88,6 +92,7 @@ class PortfolioPage extends Component {
                     )}           
                 </div>
             </div>
+            </DefaultLayout>
         )
     }
 }

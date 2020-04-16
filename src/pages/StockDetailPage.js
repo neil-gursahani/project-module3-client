@@ -15,16 +15,16 @@ class StockDetailPage extends Component {
         };
     }
 
-    componentDidMount() {
-        axios
-        .get(`https://cloud.iexapis.com/stable/stock/${this.props.match.params.stockId}/chart/${this.state.timeInterval}?sort=asc&token=pk_3d70698b98244ac68901d1cda3a83c2d`)
-        .then((apiResponse) => {
-            console.log(apiResponse);
-        })
-        .catch((error) => {
-            console.log(error);
-        });
-    }
+    // componentDidMount() {
+    //     axios
+    //     .get(`https://cloud.iexapis.com/stable/stock/${this.props.match.params.stockId}/chart/${this.state.timeInterval}?sort=asc&token=pk_3d70698b98244ac68901d1cda3a83c2d`)
+    //     .then((apiResponse) => {
+    //         console.log(apiResponse);
+    //     })
+    //     .catch((error) => {
+    //         console.log(error);
+    //     });
+    // }
 
 
     render() {
