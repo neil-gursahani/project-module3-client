@@ -30,6 +30,7 @@ class StockCompanyInfoComponent extends Component {
         return (
             <div className="stock-detail-component">
                 <h1>{aStock.companyName} ({aStock.symbol})</h1>
+                <button type="submit" onSubmit={() => {this.props.favoriteStock}}>&hearts;</button>
                 <br/>
                 <p><b>Stock Exchange:</b> {aStock.exchange}</p>
                 <p><b>Industry:</b> {aStock.industry}</p>

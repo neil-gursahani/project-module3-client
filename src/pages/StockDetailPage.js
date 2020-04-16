@@ -1,5 +1,3 @@
-//this is a test
-
 import React, { Component } from 'react';
 import axios from 'axios';
 import StockCompanyInfoComponent from '../components/StockCompanyInfoComponent';
@@ -13,8 +11,17 @@ class StockDetailPage extends Component {
         super(props)
        
         this.state = {
- 
+            portfolio: [
+                {
+                    name: "",
+                    description: "",
+                    stocks: []
+                },
+
+            ],
+            error: null
         };
+    }
     }
 
     // componentDidMount() {
@@ -28,6 +35,14 @@ class StockDetailPage extends Component {
     //     });
     // }
 
+    favoriteStockMethod() {
+        let portfolioCopy = {...this.state.portfolio};
+        let portfolioCopy.stocks = 
+        this.setState({
+            stocks:
+        })
+    }
+
 
     render() {
         debugger
@@ -35,7 +50,7 @@ class StockDetailPage extends Component {
             <div>
                 <DefaultLayout>
                     <div className="stock-detail-page-top">
-                        <StockCompanyInfoComponent symbol={this.props.match.params.stockId}/>
+                        <StockCompanyInfoComponent favoriteStock={this.favoriteStockMethod} symbol={this.props.match.params.stockId}/>
                         <StockGraphComponent symbol={this.props.match.params.stockId}/>
                     </div>
                     <div className="stock-detail-page-bottom">
