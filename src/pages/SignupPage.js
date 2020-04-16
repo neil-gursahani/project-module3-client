@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import {signup} from '../utilities/auth';
+import Footer from '../components/Footer';
+import LoggedOutNavBar from '../components/LoggedOutNavBar';
 import 'bulma/css/bulma.css';
 
 class SignupPage extends Component {
@@ -49,82 +51,86 @@ class SignupPage extends Component {
     render() {
         return (
             <div>
-                <form onSubmit={(event) => this.formSubmit(event)}>
-                    <div className="field">
-                        <p className="control has-icons-left has-icons-right">
-                            <input 
-                                required
-                                pattern="^[A-Za-z]+$" 
-                                type="text" 
-                                name="firstname" 
-                                value={this.state.firstname} 
-                                onChange={(event) => this.onChange(event)} 
-                                placeholder="First Name"/>
-                            <span className="icon is-small is-left">
-                                <i className="fas fa-user"/>
-                            </span>
-                            <span className="icon is-small is-right">
-                                <i className="fas fa-check"/>
-                            </span>
-                        </p>
-                    </div>
-                    <div className="field">
-                        <p className="control has-icons-left has-icons-right">
-                            <input
-                                required
-                                pattern="^[A-Za-z]+$" 
-                                type="text" 
-                                name="lastname" 
-                                value={this.state.lastname} 
-                                onChange={(event) => this.onChange(event)} 
-                                placeholder="Last Name"/>
-                            <span className="icon is-small is-left">
-                                <i className="fas fa-user"></i>
-                            </span>
-                            <span className="icon is-small is-right">
+                <LoggedOutNavBar/>
+                <div className="authentication"> 
+                    <form className="authentication-signup"onSubmit={(event) => this.formSubmit(event)}>
+                        <div className="field">
+                            <p className="control has-icons-left has-icons-right">
+                                <input 
+                                    required
+                                    pattern="^[A-Za-z]+$" 
+                                    type="text" 
+                                    name="firstname" 
+                                    value={this.state.firstname} 
+                                    onChange={(event) => this.onChange(event)} 
+                                    placeholder="First Name"/>
+                                <span className="icon is-small is-left">
+                                    <i className="fas fa-user"/>
+                                </span>
+                                <span className="icon is-small is-right">
+                                    <i className="fas fa-check"/>
+                                </span>
+                            </p>
+                        </div>
+                        <div className="field">
+                            <p className="control has-icons-left has-icons-right">
+                                <input
+                                    required
+                                    pattern="^[A-Za-z]+$" 
+                                    type="text" 
+                                    name="lastname" 
+                                    value={this.state.lastname} 
+                                    onChange={(event) => this.onChange(event)} 
+                                    placeholder="Last Name"/>
+                                <span className="icon is-small is-left">
+                                    <i className="fas fa-user"></i>
+                                </span>
+                                <span className="icon is-small is-right">
+                                    <i className="fas fa-check"></i>
+                                </span>
+                            </p>
+                        </div>
+                        <div className="field">
+                            <p className="control has-icons-left has-icons-right">
+                                <input
+                                    required
+                                    type="email" 
+                                    name="email" 
+                                    value={this.state.email} 
+                                    onChange={(event) => this.onChange(event)} 
+                                    placeholder="Email"/>
+                                <span className="icon is-small is-left">
+                                <i className="fas fa-envelope"></i>
+                                </span>
+                                <span className="icon is-small is-right">
                                 <i className="fas fa-check"></i>
-                            </span>
-                        </p>
-                    </div>
-                    <div className="field">
-                        <p className="control has-icons-left has-icons-right">
-                            <input
-                                required
-                                type="email" 
-                                name="email" 
-                                value={this.state.email} 
-                                onChange={(event) => this.onChange(event)} 
-                                placeholder="Email"/>
-                            <span className="icon is-small is-left">
-                            <i className="fas fa-envelope"></i>
-                            </span>
-                            <span className="icon is-small is-right">
-                            <i className="fas fa-check"></i>
-                            </span>
-                        </p>
-                    </div>
-                    <div className="field">
-                        <p className="control has-icons-left">
-                            <input
-                                required
-                                type="password" 
-                                name="password" 
-                                value={this.state.password} 
-                                onChange={(event) => this.onChange(event)} 
-                                placeholder="Password"/>
-                            <span className="icon is-small is-left">
-                            <i className="fas fa-lock"></i>
-                            </span>
-                        </p>
-                    </div>
-                    <div className="field">
-                        <p className="control">
-                            <button className="button is-success">
-                            Login
-                            </button>
-                        </p>
-                    </div>
-                </form>
+                                </span>
+                            </p>
+                        </div>
+                        <div className="field">
+                            <p className="control has-icons-left">
+                                <input
+                                    required
+                                    type="password" 
+                                    name="password" 
+                                    value={this.state.password} 
+                                    onChange={(event) => this.onChange(event)} 
+                                    placeholder="Password"/>
+                                <span className="icon is-small is-left">
+                                <i className="fas fa-lock"></i>
+                                </span>
+                            </p>
+                        </div>
+                        <div className="field">
+                            <p className="control">
+                                <button className="button is-success">
+                                Signup
+                                </button>
+                            </p>
+                        </div>
+                    </form>
+                </div>
+                <Footer/>
             </div>
         )
     }

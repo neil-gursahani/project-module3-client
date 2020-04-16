@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
-import SingleStockDetailPage from './StockCompanyDetail';
 import axios from 'axios';
 import {Line} from 'react-chartjs-2';
-import StockNewsPage from './StockNews';
 
-class StockGraphPage extends Component {
+class StockGraphComponent extends Component {
     
     constructor(props) {
         super(props)
@@ -42,8 +40,9 @@ class StockGraphPage extends Component {
 
     fetchFinancialGraphData(){
         axios
-        .get(`https://cloud.iexapis.com/stable/stock/${this.props.match.params.stockId}/chart/${this.state.timeInterval}?sort=asc&token=pk_3d70698b98244ac68901d1cda3a83c2d`)
-        .get(`https://cloud.iexapis.com/stable/stock/aapl/chart/${this.state.timeInterval}?sort=asc&token=pk_3d70698b98244ac68901d1cda3a83c2d`)
+        // .get(`https://cloud.iexapis.com/stable/stock/${this.props.match.params.stockId}/chart/${this.state.timeInterval}?sort=asc&token=pk_3d70698b98244ac68901d1cda3a83c2d`)
+        .get(`https://cloud.iexapis.com/stable/stock/${this.props.symbol}/chart/${this.state.timeInterval}?sort=asc&token=pk_3d70698b98244ac68901d1cda3a83c2d`)
+        // .get(`https://cloud.iexapis.com/stable/stock/aapl/chart/${this.state.timeInterval}?sort=asc&token=pk_3d70698b98244ac68901d1cda3a83c2d`)
         .then((apiResponse) => {
 
             var data = apiResponse.data.map((day)=> day.close);
@@ -63,7 +62,6 @@ class StockGraphPage extends Component {
         return (
             <div>
                 <div className="stock-info-and-graph">
-                    <SingleStockDetailPage/>
                     <div className="stock-graph">
                         <Line
                             data={this.state.chartData}
@@ -131,10 +129,9 @@ class StockGraphPage extends Component {
                         </div>      
                     </div>
                 </div>
-                <StockNewsPage/>
             </div>
         )
     }
 }
 
-export default StockGraphPage
+export default StockGraphComponent

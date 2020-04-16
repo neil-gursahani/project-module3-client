@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
-import Modal from 'react-bootstrap/Modal';
-import Button from 'react-bootstrap/Button';
 import {createPortfolio} from '../utilities/api';
+import 'bulma/css/bulma.css';
+// import {Button} from 'react-bootstrap';
+// import {Modal} from 'react-bootstrap';
+// import Example from '../components/Example';
 
 class PortfolioPage extends Component {
     constructor(props) {
@@ -11,27 +13,27 @@ class PortfolioPage extends Component {
         this.onChange = this.onChange.bind(this);
 
         this.state = {
-            stock: {
-                name: [],
-                description: [],
-                stocks: []
-            },
+            portfolio: [
+                {
+                    name: "",
+                    description: "",
+                    stocks: []
+                },
+
+            ],
             error: null
         };
     }
 
+    
     formSubmit(event) {
-        // debugger
+        debugger
         event.preventDefault();
-        createPortfolio(this.state.stock)
+        createPortfolio(this.state.portfolio)
         .then((response) => {
             this.setState({
-                stock: response.data
-            // });
-            },
-            () => {
-                this.props.history.push("/portfolio");
-            });
+                portfolio: response.data
+            })
         })
         .catch((error) => {
             console.log(error);
@@ -40,11 +42,11 @@ class PortfolioPage extends Component {
     }
 
     onChange(event) {
-        let stockCopy = {...this.state.stock};
+        let portfolioCopy = {...this.state.portfolio};
 
-        stockCopy[event.target.name] =  event.target.value;
+        portfolioCopy[event.target.name] =  event.target.value;
         this.setState({
-            stock: stockCopy
+            portfolio: portfolioCopy
         });
     }
 
@@ -57,6 +59,9 @@ class PortfolioPage extends Component {
                 <div>
                     <button>+</button>
                 </div>
+
+
+
                 <div>
                     <form onSubmit={(event) => this.formSubmit(event)}>
                         <input 
@@ -75,8 +80,12 @@ class PortfolioPage extends Component {
                     </form>
                 </div>
                 <div>
-                    <h1>{this.state.name}</h1>
-                    <p>{this.state.description}</p>
+                    {this.state.portfolio.map((stock, index) => 
+                        <div key={index}>
+                            <h1>{this.state.portfolio.name}</h1>
+                            <p>{this.state.portfolio.description}</p>
+                        </div>
+                    )}           
                 </div>
             </div>
         )

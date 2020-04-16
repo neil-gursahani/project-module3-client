@@ -5,7 +5,7 @@ function LoggedOutNavBar() {
     return (
         <nav className="logged-out-nav-bar">
             <Link to='/'>
-                <img src="https://www.iconsdb.com/icons/preview/white/house-xxl.png"/>   
+                <img src="../logo.jpg" alt="Home Icon"/>   
             </Link>
             
             <ul>

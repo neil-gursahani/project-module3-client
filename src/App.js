@@ -8,10 +8,11 @@ import Homepage from './pages/Homepage';
 import SignupPage from './pages/SignupPage';
 import LoginPage from './pages/LoginPage';
 import PortfolioPage from './pages/PortfolioPage';
-import StockName from './pages/StockName';
-import SingleStockDetailPage from './pages/StockCompanyDetail';
-import StockNewsPage from './pages/StockNews';
-import StockGraphPage from './pages/StockGraphPage';
+import AllStocksPage from './pages/AllStocksPage';
+import StockCompanyInfoComponent from './components/StockCompanyInfoComponent';
+import StockNewsComponent from './components/StockNewsComponent';
+import StockGraphComponent from './components/StockGraphComponent';
+import StockDetailPage from './pages/StockDetailPage';
 // import DefaultLayout from './layouts/DefaultLayout';
 
 //Import styling
@@ -42,14 +43,11 @@ class App extends Component {
         <Route exact path='/signup' component={SignupPage}/>
         <Route exact path='/login' component={LoginPage}/>
         <Route exact path='/portfolio' component={PortfolioPage}/>
-        <Route exact path='/stocks' component={StockName}/>
-        <Route exact path='/stocks/detail/:stockId' component={SingleStockDetailPage}/>
-        <Route exact path='/stocks/news/:stockId' component={StockNewsPage}/>
-        <Route exact path='/stocks/detail/:stockId' component={StockGraphPage}/>
-        
-        
-        
-        
+        <Route exact path='/stocks' component={AllStocksPage}/>
+        <Route exact path='/stocks/detail/:stockId' component={StockDetailPage}/>
+        <Route exact path='/company-info' component={StockCompanyInfoComponent}/>
+        <Route exact path='/news' component={StockNewsComponent}/>
+        <Route exact path='/graph' component={StockGraphComponent}/>
       </div>
     )
   }

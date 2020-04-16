@@ -51,42 +51,34 @@ footer {
   align-items: center;
 }
 
-.logged-out-nav-bar {
+.logged-out-nav-bar, .logged-in-nav-bar {
   background-color: #3CA4EB;  
   height: 5vh;
+  position: sticky;
+  top: 0;
 }
 
-.logged-out-nav-bar a {
+.logged-out-nav-bar a, .logged-in-nav-bar a {
   position: fixed;
   top: 3px;
   margin-left: 10%;
+  color: #fff;
 }
 
-.logged-out-nav-bar ul {
+.logged-out-nav-bar ul, .logged-in-nav-bar ul {
   display: flex;
   justify-content: flex-end;
   margin-right: 15%;
 }
 
-.logged-out-nav-bar li {
+.logged-out-nav-bar li, .logged-in-nav-bar li {
     padding: 0px 35px;
-    /* border: 1px solid;
-    background-color: #fff;
-    border-radius: 5px; */
     height: 5vh;
 }
 
-
-
-
-.logged-out-nav-bar li {
-  color: #fff;
-}
-
 .stock-news-component {
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: auto;
+  display: flex;
+  justify-content: space-evenly;
 }
 
 .homepage-text {
@@ -148,7 +140,7 @@ footer {
 
 .all-stocks-table {
   overflow-y: scroll;
-  height: 75vh;
+  height: 90vh;
   top: 30%;
 }
 
@@ -158,6 +150,35 @@ footer {
 
 .single-stock-info {
   padding: 0px 20px;
+}
+
+.all-stocks-table th {
+  position: sticky;
+}
+
+.stock-news-summary {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: auto;
+}
+
+.authentication {
+  display: flex;
+  justify-content: center;
+}
+
+.authentication-signup, .authentication-login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.button.is-success {
+  background-color: #3CA4EB;
+}
+
+.footer .content p {
+  margin-bottom: 0%;
 }
 
 
