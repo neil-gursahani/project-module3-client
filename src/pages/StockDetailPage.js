@@ -35,13 +35,7 @@ class StockDetailPage extends Component {
     //     });
     // }
 
-    favoriteStockMethod() {
-        let portfolioCopy = {...this.state.portfolio};
-        let portfolioCopy.stocks = 
-        this.setState({
-            stocks:
-        })
-    }
+
 
 
     render() {
@@ -50,7 +44,8 @@ class StockDetailPage extends Component {
             <div>
                 <DefaultLayout>
                     <div className="stock-detail-page-top">
-                        <StockCompanyInfoComponent favoriteStock={this.favoriteStockMethod} symbol={this.props.match.params.stockId}/>
+                        {/* <StockCompanyInfoComponent favoriteStock={this.props.favoriteStockMethod} symbol={this.props.match.params.stockId}/> */}
+                        <StockCompanyInfoComponent symbol={this.props.match.params.stockId}/>
                         <StockGraphComponent symbol={this.props.match.params.stockId}/>
                     </div>
                     <div className="stock-detail-page-bottom">

@@ -51,6 +51,15 @@ class PortfolioPage extends Component {
         });
     }
 
+    // favoriteStockMethod() {
+    //     debugger
+    //     let portfolioCopy = {...this.state.portfolio};
+    //     let portfolioCopy.stocks = 
+    //     this.setState({
+    //         stocks:
+    //     })
+    // }
+
     render() {
         return (
             <DefaultLayout>
