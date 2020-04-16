@@ -1,3 +1,5 @@
+//this is a test
+
 import React, { Component } from 'react';
 import axios from 'axios';
 import StockCompanyInfoComponent from '../components/StockCompanyInfoComponent';
