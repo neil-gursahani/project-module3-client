@@ -28,7 +28,7 @@ class LoginPage extends Component {
         },
 
         () => {
-            this.props.history.push("/portfolio");
+            this.props.history.push("/stocks");
             });
         })
         .catch((error) => {

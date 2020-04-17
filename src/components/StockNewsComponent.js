@@ -14,16 +14,11 @@ class StockNewsComponent extends Component {
     }
 
     componentDidMount() {
-        // axios.get(`https://cloud.iexapis.com/stable/stock/${this.props.match.params.stockId}/news/last/3?token=pk_3d70698b98244ac68901d1cda3a83c2d `)
-        axios.get(`https://cloud.iexapis.com/stable/stock/${this.props.symbol}/news/last/3?token=pk_3d70698b98244ac68901d1cda3a83c2d `)
-        // axios.get(`https://cloud.iexapis.com/stable/stock/aapl/news/last/3?token=pk_3d70698b98244ac68901d1cda3a83c2d `)
-
+        axios.get(`https://cloud.iexapis.com/stable/stock/${this.props.symbol}/news/last/3?token=${process.env.REACT_APP_API_KEY}`)
         .then(response => {
             this.setState({stockNews: response.data});
-            // console.log(response.data);
         })
         .catch((error)=> {
-            // console.log(error);
 		});
     }
 
@@ -33,10 +28,8 @@ class StockNewsComponent extends Component {
 
         return (
             <div className="stock-news-component columns">
-                {/* <div>
-                    <h1>Recent News...</h1>
-                </div> */}
-               {/* <div> */}
+
+
                     {this.state.stockNews.map((stock, index) => 
                         <Card style={{ width: '25%'}}>
                             <Card.Img className="news-image"src={stock.image} />
@@ -48,7 +41,7 @@ class StockNewsComponent extends Component {
                             </Card.Body>
                         </Card>
                     )}
-                {/* </div> */}
+
             </div>
         )
     }

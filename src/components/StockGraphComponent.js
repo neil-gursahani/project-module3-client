@@ -8,7 +8,7 @@ class StockGraphComponent extends Component {
         super(props)
         this.fetchFinancialGraphData = this.fetchFinancialGraphData.bind(this);
         this.state = {
-            timeInterval: "5d",
+            timeInterval: "dynamic",
             chartData: {
                 labels: [], //dates go here
                 datasets: [
@@ -17,7 +17,7 @@ class StockGraphComponent extends Component {
                       fill: false,
                       lineTension: 0.5,
                       backgroundColor: 'rgba(75,192,192,1)',
-                      borderColor: 'rgba(0,0,0,1)',
+                      borderColor: 'rgba(60, 164, 235, 1)',
                       borderWidth: 2,
                       data: [] //prices go here
                     }
@@ -40,9 +40,7 @@ class StockGraphComponent extends Component {
 
     fetchFinancialGraphData(){
         axios
-        // .get(`https://cloud.iexapis.com/stable/stock/${this.props.match.params.stockId}/chart/${this.state.timeInterval}?sort=asc&token=pk_3d70698b98244ac68901d1cda3a83c2d`)
-        .get(`https://cloud.iexapis.com/stable/stock/${this.props.symbol}/chart/${this.state.timeInterval}?sort=asc&token=pk_3d70698b98244ac68901d1cda3a83c2d`)
-        // .get(`https://cloud.iexapis.com/stable/stock/aapl/chart/${this.state.timeInterval}?sort=asc&token=pk_3d70698b98244ac68901d1cda3a83c2d`)
+        .get(`https://cloud.iexapis.com/stable/stock/${this.props.symbol}/chart/${this.state.timeInterval}?sort=asc&token=${process.env.REACT_APP_API_KEY}`)
         .then((apiResponse) => {
 
             var data = apiResponse.data.map((day)=> day.close);
@@ -60,7 +58,6 @@ class StockGraphComponent extends Component {
     }
     render() {
         return (
-            <div>
                 <div className="stock-info-and-graph">
                     <div className="stock-graph">
                         <Line
@@ -68,68 +65,72 @@ class StockGraphComponent extends Component {
                             options={{}}
                         />
                         <div className="stock-buttons">
+                            <button 
+                                onClick={()=> {
+                                    this.setState({timeInterval: "dynamic"}, ()=> {
+                                        this.fetchFinancialGraphData()
+                                    })
+                                }}
+                                className="time-button dynamic">dynamic</button>
+                            <button 
+                            onClick={()=> {
+                                this.setState({timeInterval: "5d"}, ()=> {
+                                    this.fetchFinancialGraphData()
+                                })
+                            }}
+                            className="time-button 5days">5d</button>
+                            <button 
+                                onClick={()=> {
+                                    this.setState({timeInterval: "1m"}, ()=> {
+                                        this.fetchFinancialGraphData()
+                                    })
+                                }}
+                                className="time-button 1month">1m</button>
+                            <button 
+                                onClick={()=> {
+                                    this.setState({timeInterval: "3m"}, ()=> {
+                                        this.fetchFinancialGraphData()
+                                    })
+                                }}
+                                className="time-button 3months">3m</button>
+                            <button 
+                                onClick={()=> {
+                                    this.setState({timeInterval: "6m"}, ()=> {
+                                        this.fetchFinancialGraphData()
+                                    })
+                                }}
+                                className="time-button 6months">6m</button>
+                            <button 
+                                onClick={()=> {
+                                    this.setState({timeInterval: "1y"}, ()=> {
+                                        this.fetchFinancialGraphData()
+                                    })
+                                }}
+                                className="time-button 1year">1y</button>
+                            <button 
+                                onClick={()=> {
+                                    this.setState({timeInterval: "2y"}, ()=> {
+                                        this.fetchFinancialGraphData()
+                                    })
+                                }}
+                                className="time-button 2years">2y</button>
+                            <button 
+                                onClick={()=> {
+                                    this.setState({timeInterval: "5y"}, ()=> {
+                                        this.fetchFinancialGraphData()
+                                    })
+                                }}
+                                className="time-button 5years">5y</button>
+                        </div>  
+                        <br></br>
+                        {/* <div className="stock-buttons">
+                            <button 
+                                  
+                                    className="time-button favorite-button">Favorite &hearts;</button>
 
-                        
-                        <button 
-                            onClick={()=> {
-                                this.setState({timeInterval: "dynamic"}, ()=> {
-                                    this.fetchFinancialGraphData()
-                                })
-                            }}
-                            className="time-button dynamic">dynamic</button>
-                        <button 
-                        onClick={()=> {
-                            this.setState({timeInterval: "5d"}, ()=> {
-                                this.fetchFinancialGraphData()
-                            })
-                        }}
-                        className="time-button 5days">5d</button>
-                        <button 
-                            onClick={()=> {
-                                this.setState({timeInterval: "1m"}, ()=> {
-                                    this.fetchFinancialGraphData()
-                                })
-                            }}
-                            className="time-button 1month">1m</button>
-                        <button 
-                            onClick={()=> {
-                                this.setState({timeInterval: "3m"}, ()=> {
-                                    this.fetchFinancialGraphData()
-                                })
-                            }}
-                            className="time-button 3months">3m</button>
-                        <button 
-                            onClick={()=> {
-                                this.setState({timeInterval: "6m"}, ()=> {
-                                    this.fetchFinancialGraphData()
-                                })
-                            }}
-                            className="time-button 6months">6m</button>
-                        <button 
-                            onClick={()=> {
-                                this.setState({timeInterval: "1y"}, ()=> {
-                                    this.fetchFinancialGraphData()
-                                })
-                            }}
-                            className="time-button 1year">1y</button>
-                        <button 
-                            onClick={()=> {
-                                this.setState({timeInterval: "2y"}, ()=> {
-                                    this.fetchFinancialGraphData()
-                                })
-                            }}
-                            className="time-button 2years">2y</button>
-                        <button 
-                            onClick={()=> {
-                                this.setState({timeInterval: "5y"}, ()=> {
-                                    this.fetchFinancialGraphData()
-                                })
-                            }}
-                            className="time-button 5years">5y</button>
-                        </div>      
+                        </div>     */}
                     </div>
                 </div>
-            </div>
         )
     }
 }

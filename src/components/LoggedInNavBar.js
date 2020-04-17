@@ -3,14 +3,13 @@ import {Link} from "react-router-dom";
 
 function LoggedInNavBar() {
     return (
-        <nav className="logged-in-nav-bar">
-            <Link to='/'>
-                <img src="../logo.png" alt="Home Icon"/>  
+        <nav className="logged-out-nav-bar">
+            <Link to='/stocks'>
+                <h4>StockTrack</h4>   
             </Link>
             
             <ul>
-                <li><Link to="/">Home</Link></li>
-                <li><Link to="/profile">Profile</Link></li>
+                <li><Link to="/stocks">Stocks</Link></li>
                 <li><Link to="/">Logout</Link></li>
             </ul>
         </nav>

@@ -61,19 +61,32 @@ footer {
 .logged-out-nav-bar a, .logged-in-nav-bar a {
   position: fixed;
   top: 3px;
-  margin-left: 10%;
+  margin-left: 5%;
   color: #fff;
+  font-weight: bold;
+  padding: 0px 35px;
+
 }
 
-.logged-out-nav-bar ul, .logged-in-nav-bar ul {
+.logged-out-nav-bar h4, .logged-in-nav-bar h4 {
+  font-weight: bold;
+}
+
+.logged-out-nav-bar ul {
   display: flex;
   justify-content: flex-end;
   margin-right: 15%;
+  padding: 10px;
 }
 
 .logged-out-nav-bar li, .logged-in-nav-bar li {
-    padding: 0px 35px;
+    padding: 0px 35px; 
     height: 5vh;
+}
+
+.logged-out-nav-bar a:hover, .logged-in-nav-bar a:hover {
+  text-decoration: none;
+  color: white;
 }
 
 .stock-news-component {
@@ -85,7 +98,6 @@ footer {
   text-align: center;
   width: 20%;
   font-size: 20px;
-  border: 1px solid #fff;
   border-radius: 5px;
   position: fixed;
   top: 275px;
@@ -102,8 +114,15 @@ footer {
 
 .homepage-text a {
   font-size: 20px;
-  color: white;
-  background-color:#A99F8B;
+  color: #212529;
+  background-color: #fff;
+  border: 1px solid #212529;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.homepage-text p {
+  color: #212529;
 }
 
 .homepage-content {
@@ -116,6 +135,8 @@ footer {
 
 .stock-detail-component {
   width: 30%;
+  margin-left: 5%;
+  margin-top: 3%;
 
 }
 
@@ -125,12 +146,15 @@ footer {
 }
 
 .stock-info-and-graph {
-  display: flex;
+  position: absolute;
+  top: 75px;
+  right: 5px;
+  width: 63%;
 }
 
-.stock-graph {
+/* .stock-graph {
   width: 70%;
-}
+} */
 
 .stock-buttons {
   display: flex;
@@ -138,11 +162,27 @@ footer {
   margin-top: 2%;
 }
 
+.stock-buttons button, .favorite-button {
+  background-color:#3CA4EB;
+  color: #fff;
+}
+
+.favorite-button {
+  margin-left: 5%;
+  border-radius: 5px;
+}
+
+
 .all-stocks-table {
   overflow-y: scroll;
   height: 90vh;
   top: 30%;
 }
+
+.stock-news-component {
+  margin-top: 5%;
+  margin-bottom: 8% !important;
+} 
 
 .single-stock-column {
   display: flex;
@@ -153,7 +193,8 @@ footer {
 }
 
 .all-stocks-table th {
-  position: sticky;
+  position: fixed;
+  top: 5%;
 }
 
 .stock-news-summary {
@@ -171,6 +212,7 @@ footer {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 10%;
 }
 
 .button.is-success {
@@ -181,7 +223,32 @@ footer {
   margin-bottom: 0%;
 }
 
+.all-stocks-table th {
+  width: 33%;
+  position: sticky;
+  top: 20px;
 
+}
+
+
+
+#searchbar {
+  margin-left: 0.5%;
+  border-radius: 5px;
+}
+
+.stock-detail-component p {
+  margin-bottom: 0px;
+}
+
+.favorite {
+  display: flex;
+}
+
+.portfolio-page h1 {
+  margin-top: 2%;
+  margin-left: 5%;
+}
 
 
 

@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import {createPortfolio} from '../utilities/api';
 import 'bulma/css/bulma.css';
 import DefaultLayout from '../layouts/DefaultLayout';
+import PortfolioCard from '../components/PortfolioCard'
+import StockCompanyInfoComponent from '../components/StockCompanyInfoComponent';
 // import {Button} from 'react-bootstrap';
 // import {Modal} from 'react-bootstrap';
 // import Example from '../components/Example';
@@ -16,19 +18,17 @@ class PortfolioPage extends Component {
         this.state = {
             portfolio: [
                 {
-                    name: "",
-                    description: "",
+                    name: '',
+                    description: '',
                     stocks: []
                 },
 
-            ],
-            error: null
+            ]
         };
     }
 
     
     formSubmit(event) {
-        debugger
         event.preventDefault();
         createPortfolio(this.state.portfolio)
         .then((response) => {
@@ -61,21 +61,20 @@ class PortfolioPage extends Component {
     // }
 
     render() {
+        debugger
         return (
             <DefaultLayout>
 
             
             <div className="portfolio-page">
                 <div>
-                    <h1>Portfolio</h1>
-                </div>
-                <div>
-                    <button>+</button>
+                    <h1>Stocks</h1>
                 </div>
 
+                <StockCompanyInfoComponent/>
 
 
-                <div>
+                {/* <div>
                     <form onSubmit={(event) => this.formSubmit(event)}>
                         <input 
                             type="text" 
@@ -91,14 +90,17 @@ class PortfolioPage extends Component {
                             placeholder="Portfolio Description"/>
                         <button>Create portfolio</button>             
                     </form>
-                </div>
+                </div> */}
                 <div>
-                    {this.state.portfolio.map((stock, index) => 
-                        <div key={index}>
-                            <h1>{this.state.portfolio.name}</h1>
-                            <p>{this.state.portfolio.description}</p>
-                        </div>
-                    )}           
+                        {this.state.portfolio.map((portfolio, index) => 
+                            <div key={index}>
+                            <PortfolioCard portfolioName={portfolio.name} portfolioDescription={portfolio.description}/>
+                            {/* <div>
+                                <h1>{this.state.portfolio.name}</h1>
+                                <p>{this.state.portfolio.description}</p>
+                            </div> */}
+                            </div>
+                    )}     
                 </div>
             </div>
             </DefaultLayout>

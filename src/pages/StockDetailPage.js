@@ -22,11 +22,11 @@ class StockDetailPage extends Component {
             error: null
         };
     }
-    }
+
 
     // componentDidMount() {
     //     axios
-    //     .get(`https://cloud.iexapis.com/stable/stock/${this.props.match.params.stockId}/chart/${this.state.timeInterval}?sort=asc&token=pk_3d70698b98244ac68901d1cda3a83c2d`)
+    //     .get(`https://cloud.iexapis.com/stable/stock/${this.props.match.params.stockId}/chart/${this.state.timeInterval}?sort=asc&token=${process.env.REACT_APP_API_KEY}`)
     //     .then((apiResponse) => {
     //         console.log(apiResponse);
     //     })
@@ -39,7 +39,7 @@ class StockDetailPage extends Component {
 
 
     render() {
-        debugger
+
         return (
             <div>
                 <DefaultLayout>
@@ -47,6 +47,7 @@ class StockDetailPage extends Component {
                         {/* <StockCompanyInfoComponent favoriteStock={this.props.favoriteStockMethod} symbol={this.props.match.params.stockId}/> */}
                         <StockCompanyInfoComponent symbol={this.props.match.params.stockId}/>
                         <StockGraphComponent symbol={this.props.match.params.stockId}/>
+                        
                     </div>
                     <div className="stock-detail-page-bottom">
                         <StockNewsComponent symbol={this.props.match.params.stockId}/>

@@ -9,14 +9,16 @@ const axios = Axios.create({
 });
 
 export const createPortfolio = (stock) => {
-    debugger
     return axios({
         method: "POST",
         url: "portfolio",
-        data: qs.stringify(stock)
+        data: qs.stringify(stock),
+        headers: {"content-type": "application/x-www-form-urlencoded"},
+        withCredentials: true
     })
     .then((response)=> {
         setUser(response.data);
+
     })
     .catch((error) => {
         console.log(error);

@@ -4,24 +4,35 @@ import {Link} from 'react-router-dom';
 
 class StockCompanyInfoComponent extends Component {
     constructor(props) {
-        super(props)
+        super(props);
 
         this.state = {
-            oneStock: [] 
+            oneStock: [],
+            favorite: false
         };
+        this.favouriteStock = this.favouriteStock.bind(this);
     }
 
     componentDidMount() {
-        // axios.get(`https://cloud.iexapis.com/stable/stock/${this.props.match.params.stockId}/company?token=pk_3d70698b98244ac68901d1cda3a83c2d`)
-        axios.get(`https://cloud.iexapis.com/stable/stock/${this.props.symbol}/company?token=pk_3d70698b98244ac68901d1cda3a83c2d`)
-        // axios.get(`https://cloud.iexapis.com/stable/stock/aapl/company?token=pk_3d70698b98244ac68901d1cda3a83c2d`)
+        axios.get(`https://cloud.iexapis.com/stable/stock/${this.props.symbol}/company?token=${process.env.REACT_APP_API_KEY}`)
         .then(response => {
             this.setState({oneStock: response.data});
-            // console.log(response);
         })
         .catch((error)=> {
             console.log(error);
 		});
+    }
+
+    favouriteStock(){
+        axios.get(`${process.env.REACT_APP_API_BASE_URL}/users/favourites/add/${this.props.symbol}/${this.state.oneStock.companyName}`)
+            .then((response)=> {
+                this.setState({
+                    favorite: true
+                })
+            })
+            .catch((err)=> {
+                console.log(err);
+            })
     }
 
     render() {
@@ -29,8 +40,13 @@ class StockCompanyInfoComponent extends Component {
 
         return (
             <div className="stock-detail-component">
+                <div className="favorite">
                 <h1>{aStock.companyName} ({aStock.symbol})</h1>
-                {/* <button type="submit" onSubmit={() => {this.props.favoriteStock}}>&hearts;</button> */}
+                <button   
+                    onClick={this.favouriteStock}   
+                    className="favorite-button">Favorite &hearts;</button>
+
+                </div>
                 <br/>
                 <p><b>Stock Exchange:</b> {aStock.exchange}</p>
                 <p><b>Industry:</b> {aStock.industry}</p>

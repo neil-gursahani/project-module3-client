@@ -23,6 +23,7 @@ class SignupPage extends Component {
     }
 
     formSubmit(event) {
+        debugger
         event.preventDefault();
         signup(this.state.user)
         .then((response) => {
@@ -31,7 +32,7 @@ class SignupPage extends Component {
         },
 
         () => {
-            this.props.history.push("/portfolio");
+            this.props.history.push("/stocks");
         });
     })
         .catch((error) => {
